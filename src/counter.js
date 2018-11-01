@@ -1,13 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import {Button} from './styles';
 
 const Counter = () => {
   let [count, setCount] = useState(0);
+  let [firstName, setFirstName] = useState("Harry");
+  let [lastName, setLastName] = useState("Poppins");
+  // let [name, setName] = useState({
+  //   first: "Harry",
+  //   last: "Poppins"
+  // });
   return (
     <div>
-      <h1>{count} seconds</h1>
-      <button onClick={() => setCount(count+1)}>+</button>
-      <button onClick={() => setCount(0)}>reset</button>
-
+      <Button onClick={() => setCount(count+1)}>+</Button>
+      <Button onClick={() => setCount(0)}>reset</Button>
+      <h1>{firstName + " " + lastName} clicked {count} times.</h1>
+      <input value={firstName} onChange={e => setFirstName(e.target.value)}/>
+      <input value={lastName} onChange={e => setLastName(e.target.value)}/>
     </div>
   );
 };
